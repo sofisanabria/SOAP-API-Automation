@@ -1,10 +1,9 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
-import { Client, createClientAsync } from 'soap'
-import { ExampleClient } from '../generated/example'
+import { CountryClient } from '../generated/country'
 
 describe('Country Flag Tests', () => {
-    let client: ExampleClient
+    let client: CountryClient
 
     before(async () => {
         client = await ApiClient.getClient()

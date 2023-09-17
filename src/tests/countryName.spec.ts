@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
-import { ExampleClient } from '../generated/example'
+import { CountryClient, CountryIsoCode } from '../generated/country'
 
 describe('Country Name Tests', () => {
-    let client: ExampleClient
+    let client: CountryClient
 
     before(async () => {
         client = await ApiClient.getClient()
@@ -63,5 +63,28 @@ describe('Country Name Tests', () => {
         expect(result.CountryNameResult).to.equal(
             'Country not found in the database',
         )
+    })
+
+    it.only('custom service example', async () => {
+        const customService = {
+            CountryService: {
+                CountryServiceSoap: {
+                    CountryName: (_args: any) => {
+                        return {
+                            CountryNameResult: 'English',
+                        }
+                    },
+                },
+            },
+        }
+        await ApiClient.getServer(customService)
+        const customClient = await ApiClient.getClient(
+            'http://localhost:8001/wsdl?wsdl',
+        )
+        const language: CountryIsoCode = {
+            sCountryISOCode: 'Pepe',
+        }
+        const result = await customClient.CountryNameAsync(language)
+        expect(result[0].CountryNameResult).to.equal('English')
     })
 })

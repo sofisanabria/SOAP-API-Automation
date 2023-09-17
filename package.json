@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.6",
+    "@types/express": "^4.17.17",
     "@types/mocha": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
@@ -34,9 +35,12 @@
     "axios": "^0.27.2",
     "axios-logger": "^2.7.0",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "mocha-tags": "^1.0.1",
     "rimraf": "^5.0.1",
     "soap": "^1.0.0",
     "ts-node": "^10.9.1",
-    "wsdl-tsclient": "github:Shadowsx3/wsdl-tsclient"
+    "wsdl-two-ts": "github:Shadowsx3/wsdl-tsclient"
   }
 }
