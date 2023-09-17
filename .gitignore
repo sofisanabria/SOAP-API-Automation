@@ -1,0 +1,5 @@
+node_modules
+src/generated
+wsdl/*.wsdl
+reports
+.env

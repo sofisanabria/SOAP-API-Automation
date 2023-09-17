@@ -1,0 +1,9 @@
+{
+    "loader": "ts-node/esm",
+    "spec": "src/tests/**/*.spec.ts",
+    "require": [
+        "mocha.cjs"
+    ],
+    "reporter": "mochawesome",
+    "reporterOption": ["reportFilename=soap-calculator-report,reportDir=reports,reportTitle=Calculator Report,reportPageTitle=Calculator Report,charts=true,code=true,inline=true,autoOpen=true,overwrite=true,timestamp=mmddyyyy-HHMMss,enableCharts=true,enableCode=true"]
+}
