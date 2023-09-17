@@ -67,9 +67,10 @@ describe('Country Name Tests', () => {
 
     it.only('custom service example', async () => {
         const customService = {
-            CountryService: {
-                CountryServiceSoap: {
-                    CountryName: (_args: any) => {
+            CountryInfoService: {
+                CountryInfoServiceSoap: {
+                    CountryName: (args: any) => {
+                        console.log(args)
                         return {
                             CountryNameResult: 'English',
                         }
@@ -77,14 +78,21 @@ describe('Country Name Tests', () => {
                 },
             },
         }
-        await ApiClient.getServer(customService)
+        const server = await ApiClient.getServer(customService, '/Mock')
+        server.log = function (type, data) {
+            console.log('Type: ' + type + ' data: ' + data)
+        }
         const customClient = await ApiClient.getClient(
-            'http://localhost:8001/wsdl?wsdl',
+            'http://localhost:8002/Mock?wsdl',
         )
         const language: CountryIsoCode = {
             sCountryISOCode: 'Pepe',
         }
+
+        console.log(customClient.describe())
+
         const result = await customClient.CountryNameAsync(language)
+
         expect(result[0].CountryNameResult).to.equal('English')
     })
 })

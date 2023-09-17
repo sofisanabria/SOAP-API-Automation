@@ -2,13 +2,18 @@ import 'dotenv/config'
 import * as AxiosLogger from 'axios-logger'
 import axios from 'axios'
 import { CountryClient, createClientAsync } from '../generated/country'
-import express from 'express'
 import { Server, listen } from 'soap'
-import { readFile } from 'fs/promises'
+import http from 'http'
 import { readFileSync } from 'fs'
 
 export class ApiClient {
     private static classInstance?: ApiClient
+    private static appInstance: http.Server<
+        typeof http.IncomingMessage,
+        typeof http.ServerResponse
+    >
+
+    private constructor() {}
 
     public static getInstance() {
         if (!this.classInstance) {
@@ -16,6 +21,20 @@ export class ApiClient {
         }
 
         return this.classInstance
+    }
+
+    private static createServer() {
+        if (!this.appInstance) {
+            const server = http.createServer(function (request, response) {
+                response.end('404: Not Found: ' + request.url)
+            })
+
+            const port = 8002
+            server.listen(port)
+            this.appInstance = server
+        }
+
+        return this.appInstance
     }
 
     public static async getClient(url?: string) {
@@ -42,21 +61,11 @@ export class ApiClient {
         })
     }
 
-    public static async getServer(customService: any) {
-        const app = express()
-        const serverPromise = new Promise((resolve, _reject) => {
-            const server = app.listen(8001, function () {
-                resolve(server)
-            })
-        })
-
-        const server = await serverPromise
-
+    public static async getServer(customService: any, soapServiceUrl: string) {
+        const app = ApiClient.createServer()
         const xml = readFileSync(process.env.WSDL_PATH ?? '', 'utf8')
 
-        return listen(app, '/wsdl', customService, xml, () => {
-            console.log('server initialized')
-        })
+        return listen(app, soapServiceUrl, customService, xml)
     }
 }
 
