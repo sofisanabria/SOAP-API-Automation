@@ -6,7 +6,7 @@ describe('Country Flag Tests', () => {
     let client: CountryClient
 
     before(async () => {
-        client = await ApiClient.getClient()
+        client = await ApiClient.getClient<CountryClient>()
     })
 
     const countryList = [

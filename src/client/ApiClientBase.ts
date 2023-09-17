@@ -1,8 +1,7 @@
 import 'dotenv/config'
 import * as AxiosLogger from 'axios-logger'
 import axios from 'axios'
-import { CountryClient, createClientAsync } from '../generated/country'
-import { Server, listen } from 'soap'
+import { Server, createClientAsync, listen } from 'soap'
 import http from 'http'
 import { readFileSync } from 'fs'
 
@@ -12,6 +11,10 @@ export class ApiClient {
         typeof http.IncomingMessage,
         typeof http.ServerResponse
     >
+    private static serverInstance: http.Server<
+    typeof http.IncomingMessage,
+    typeof http.ServerResponse
+>
 
     private constructor() {}
 
@@ -24,21 +27,22 @@ export class ApiClient {
     }
 
     private static createServer() {
+        const port = 8002
         if (!this.appInstance) {
             const server = http.createServer(function (request, response) {
                 response.end('404: Not Found: ' + request.url)
             })
 
-            const port = 8002
-            server.listen(port)
             this.appInstance = server
+            this.serverInstance = this.appInstance.listen(port)
         }
 
-        return this.appInstance
+        return this.serverInstance
     }
 
-    public static async getClient(url?: string) {
+    public static async getClient<T>(url?: string) {
         const axiosInstance = axios.create({})
+        axiosInstance.defaults.timeout = 60000
         const isProxyEnabled = process.env.PROXY_ENABLED === 'true'
         if (isProxyEnabled) {
             axiosInstance.defaults.proxy = {
@@ -58,7 +62,7 @@ export class ApiClient {
         return await createClientAsync(path ?? '', {
             returnFault: true,
             request: axiosInstance,
-        })
+        }) as T;
     }
 
     public static async getServer(customService: any, soapServiceUrl: string) {

@@ -8,7 +8,7 @@ describe('Country Language Tests', () => {
     let client: CountryClient
 
     before(async () => {
-        client = await ApiClient.getClient()
+        client = await ApiClient.getClient<CountryClient>()
     })
 
     it(`should throw and error`, async () => {

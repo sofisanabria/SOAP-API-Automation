@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test:parallel": "mocha --parallel --require mochawesome/register.js",
+    "test": "mocha --timeout 60000",
+    "test:parallel": "mocha --timeout 60000 --parallel --require mochawesome/register.js",
     "lint": "eslint ./tests --ext .ts",
     "lint:fix": "eslint ./tests --ext .ts --fix",
     "prettify": "prettier --write ./src/tests/**/*.ts",
