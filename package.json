@@ -8,6 +8,7 @@
     "test:parallel": "mocha --parallel --require mochawesome/register.js",
     "lint": "eslint ./tests --ext .ts",
     "lint:fix": "eslint ./tests --ext .ts --fix",
+    "prettify": "prettier --write ./src/tests/**/*.ts",
     "clean": "npx rimraf ./src/generated",
     "clean:report": "npx rimraf ./reports",
     "generate": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl --quiet && eslint ./src/generated --fix"

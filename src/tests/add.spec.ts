@@ -6,7 +6,7 @@ describe('Addition Tests', () => {
     let client: Client
 
     before(async () => {
-        client = await createClientAsync(process.env.WSDL_PATH ?? '')
+        client = await ApiClient.getClient()
     })
 
     it('should correctly add two positive numbers', async () => {
