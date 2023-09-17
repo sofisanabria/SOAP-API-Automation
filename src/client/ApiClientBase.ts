@@ -1,10 +1,11 @@
 import 'dotenv/config'
 import * as AxiosLogger from 'axios-logger'
-import { ExampleWsdlClient, createClientAsync } from '../generated/examplewsdl'
+import { ExampleClient, createClientAsync } from '../generated/example'
+import axios from 'axios'
 
 export class ApiClient {
     private static classInstance?: ApiClient
-    private client?: ExampleWsdlClient
+    private client?: ExampleClient
 
     public static getInstance() {
         if (!this.classInstance) {
@@ -17,15 +18,29 @@ export class ApiClient {
     public static async getClient() {
         const instance = this.getInstance()
         if (!instance.client) {
+            const axiosInstance = axios.create({})
+            const isProxyEnabled = process.env.PROXY_ENABLED === 'true'
+            if (isProxyEnabled) {
+                axiosInstance.defaults.proxy = {
+                    host: process.env.PROXY_HOST || 'localhost',
+                    port: parseInt(process.env.PROXY_PORT || '8080'),
+                }
+            }
+
+            const isLoggingEnabled = process.env.LOGGING_ENABLED === 'true'
+            if (isLoggingEnabled) {
+                axiosInstance.interceptors.request.use(
+                    AxiosLogger.requestLogger,
+                )
+                axiosInstance.interceptors.response.use(
+                    AxiosLogger.responseLogger,
+                )
+            }
+
             instance.client = await createClientAsync(
                 process.env.WSDL_PATH ?? '',
+                { returnFault: true, request: axiosInstance },
             )
-            const axios = instance.client.wsdl.options.request
-            if (axios) {
-                axios.defaults.validateStatus = () => false
-                axios.interceptors.request.use(AxiosLogger.requestLogger)
-                console.log('AAA')
-            }
         }
 
         return instance.client

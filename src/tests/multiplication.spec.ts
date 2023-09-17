@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
-import { ExampleWsdlClient } from '../generated/examplewsdl'
+import { ExampleClient } from '../generated/example'
 
 describe('Multiplication Tests', () => {
-    let client: ExampleWsdlClient
+    let client: ExampleClient
 
     before(async () => {
         client = await ApiClient.getClient()

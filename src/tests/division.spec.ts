@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
-import { ExampleWsdlClient } from '../generated/examplewsdl'
+import { ExampleClient } from '../generated/example'
 
 describe('Division Tests', () => {
-    let client: ExampleWsdlClient
+    let client: ExampleClient
 
     before(async () => {
         client = await ApiClient.getClient()
@@ -63,9 +63,12 @@ describe('Division Tests', () => {
             await client.DivideAsync(input)
         } catch (e: any) {
             const response = e.response
+            const envelope = e.root.Envelope.Body.Fault
             expect(response.status).to.equal(500)
             expect(response.statusText).to.equal('Internal Server Error')
-            expect(response.data).to.contains(
+
+            expect(envelope.faultcode).to.equal('soap:Server')
+            expect(envelope.faultstring).to.contains(
                 'Arithmetic operation resulted in an overflow.',
             )
         }

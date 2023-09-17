@@ -1,5 +1,5 @@
 node_modules
 src/generated
-wsdl/*.wsdl
+resources/*.wsdl,xml
 reports
 .env

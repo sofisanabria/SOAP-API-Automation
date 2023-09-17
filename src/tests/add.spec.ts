@@ -1,12 +1,12 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
-import { ExampleWsdlClient } from '../generated/examplewsdl'
+import { Client, createClientAsync } from 'soap'
 
 describe('Addition Tests', () => {
-    let client: ExampleWsdlClient
+    let client: Client
 
     before(async () => {
-        client = await ApiClient.getClient()
+        client = await createClientAsync(process.env.WSDL_PATH ?? '')
     })
 
     it('should correctly add two positive numbers', async () => {
@@ -15,8 +15,8 @@ describe('Addition Tests', () => {
             intB: 2,
         }
 
-        const [response, ...a] = await client.AddAsync(input)
-        console.log(a)
+        const [response] = await client.AddAsync(input)
+
         expect(response.AddResult).to.equal(3)
     })
 
