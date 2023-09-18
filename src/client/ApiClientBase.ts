@@ -12,11 +12,7 @@ export class ApiClient {
         typeof http.IncomingMessage,
         typeof http.ServerResponse
     >
-    private static serverInstance: http.Server<
-        typeof http.IncomingMessage,
-        typeof http.ServerResponse
-    >
-    private port = 8000
+    private port = 0
 
     private constructor() {}
 
@@ -35,17 +31,14 @@ export class ApiClient {
             })
 
             this.appInstance = server
-            this.serverInstance = this.appInstance.listen(
-                port ?? this.getInstance().port,
-            )
         }
 
-        return this.serverInstance
+        return this.appInstance.listen(port ?? this.getInstance().port)
     }
 
     public static closeServer() {
-        if (this.serverInstance) {
-            this.serverInstance.close()
+        if (this.appInstance) {
+            this.appInstance.close()
         }
     }
 
@@ -76,9 +69,7 @@ export class ApiClient {
             !path.includes('http://') &&
             !path.includes('https://')
         ) {
-            path = `http://localhost:${server.port ?? this.getInstance().port}${
-                server.url
-            }`
+            path = `http://localhost:${server.port ?? 8080}${server.url}`
         }
         return (await createClientAsync(path, {
             returnFault: true,
@@ -110,18 +101,29 @@ export class ApiClient {
         return builder.buildObject(result)
     }
 
-    public static async getServer(
+    public static async getService(
         wsdl: string,
         soapServiceUrl: string,
         customService: any,
+        port?: number,
     ) {
-        const app = ApiClient.createServer()
+        const app = ApiClient.createServer(port)
+        const finalPort = (
+            app.address() as {
+                address: string
+                family: string
+                port: number
+            }
+        ).port
         const wsdlXml = readFileSync(wsdl, 'utf8')
         const newWsdl = await this.modifyWsdl(
             wsdlXml,
-            `http://localhost:${this.getInstance().port}${soapServiceUrl}`,
+            `http://localhost:${finalPort}${soapServiceUrl}`,
         )
-        return listen(app, soapServiceUrl, customService, newWsdl)
+        return {
+            server: listen(app, soapServiceUrl, customService, newWsdl),
+            port: finalPort,
+        }
     }
 }
 
@@ -129,11 +131,7 @@ export interface SoapError {
     root?: {
         Envelope: {
             Body: {
-                Fault: {
-                    faultcode: string
-                    faultstring: string
-                    detail: string
-                }
+                Fault: any
             }
         }
     }

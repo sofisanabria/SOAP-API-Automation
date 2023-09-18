@@ -8,5 +8,6 @@ export interface TCountryCodeAndName {
     sISOCode?: string
     /** xs:string */
     sName?: string
+    /** Hold additional properties */
     [arg: string]: any
 }

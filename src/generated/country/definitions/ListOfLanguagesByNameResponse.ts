@@ -4,5 +4,6 @@ import { Languages } from './Languages'
 export interface ListOfLanguagesByNameResponse {
     /** ListOfLanguagesByNameResult */
     ListOfLanguagesByNameResult?: Languages
+    /** Hold additional properties */
     [arg: string]: any
 }

@@ -8,5 +8,6 @@ import { FullCountryInfoResult } from './FullCountryInfoResult'
 export interface FullCountryInfoAllCountriesResult {
     /** tCountryInfo[] */
     tCountryInfo?: Array<FullCountryInfoResult>
+    /** Hold additional properties */
     [arg: string]: any
 }

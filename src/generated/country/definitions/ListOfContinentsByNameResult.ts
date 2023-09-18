@@ -8,5 +8,6 @@ import { TContinent } from './TContinent'
 export interface ListOfContinentsByNameResult {
     /** tContinent[] */
     tContinent?: Array<TContinent>
+    /** Hold additional properties */
     [arg: string]: any
 }

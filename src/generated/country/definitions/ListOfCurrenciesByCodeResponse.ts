@@ -4,5 +4,6 @@ import { ListOfCurrenciesByNameResult } from './ListOfCurrenciesByNameResult'
 export interface ListOfCurrenciesByCodeResponse {
     /** ListOfCurrenciesByCodeResult */
     ListOfCurrenciesByCodeResult?: ListOfCurrenciesByNameResult
+    /** Hold additional properties */
     [arg: string]: any
 }

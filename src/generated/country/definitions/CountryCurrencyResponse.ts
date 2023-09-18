@@ -4,5 +4,6 @@ import { TCurrency } from './TCurrency'
 export interface CountryCurrencyResponse {
     /** CountryCurrencyResult */
     CountryCurrencyResult?: TCurrency
+    /** Hold additional properties */
     [arg: string]: any
 }

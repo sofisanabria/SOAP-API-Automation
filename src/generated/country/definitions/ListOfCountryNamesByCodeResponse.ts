@@ -4,5 +4,6 @@ import { ListOfCountryNamesByCodeResult } from './ListOfCountryNamesByCodeResult
 export interface ListOfCountryNamesByCodeResponse {
     /** ListOfCountryNamesByCodeResult */
     ListOfCountryNamesByCodeResult?: ListOfCountryNamesByCodeResult
+    /** Hold additional properties */
     [arg: string]: any
 }

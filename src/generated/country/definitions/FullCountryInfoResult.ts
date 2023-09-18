@@ -22,5 +22,6 @@ export interface FullCountryInfoResult {
     sCountryFlag?: string
     /** Languages */
     Languages?: Languages
+    /** Hold additional properties */
     [arg: string]: any
 }

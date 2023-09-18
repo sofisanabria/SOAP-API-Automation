@@ -4,5 +4,6 @@ import { FullCountryInfoAllCountriesResult } from './FullCountryInfoAllCountries
 export interface FullCountryInfoAllCountriesResponse {
     /** FullCountryInfoAllCountriesResult */
     FullCountryInfoAllCountriesResult?: FullCountryInfoAllCountriesResult
+    /** Hold additional properties */
     [arg: string]: any
 }
