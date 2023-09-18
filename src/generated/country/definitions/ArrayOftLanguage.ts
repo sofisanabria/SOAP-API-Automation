@@ -1,12 +1,12 @@
 import { TLanguage } from './TLanguage'
 
 /**
- * Languages
+ * ArrayOftLanguage
  * @targetNSAlias `tns`
  * @targetNamespace `http://www.oorsprong.org/websamples.countryinfo`
  */
-export interface Languages {
-    /** tLanguage[] */
+export interface ArrayOftLanguage {
+    /** tLanguage */
     tLanguage?: Array<TLanguage>
     /** Hold additional properties */
     [arg: string]: any

@@ -1,9 +1,9 @@
-import { ListOfCountryNamesByCodeResult } from './ListOfCountryNamesByCodeResult'
+import { ArrayOftCountryCodeAndName } from './ArrayOftCountryCodeAndName'
 
 /** ListOfCountryNamesByNameResponse */
 export interface ListOfCountryNamesByNameResponse {
-    /** ListOfCountryNamesByNameResult */
-    ListOfCountryNamesByNameResult?: ListOfCountryNamesByCodeResult
+    /** ArrayOftCountryCodeAndName */
+    ListOfCountryNamesByNameResult?: ArrayOftCountryCodeAndName
     /** Hold additional properties */
     [arg: string]: any
 }

@@ -1,9 +1,9 @@
-import { ListOfCurrenciesByNameResult } from './ListOfCurrenciesByNameResult'
+import { ArrayOftCurrency } from './ArrayOftCurrency'
 
 /** ListOfCurrenciesByCodeResponse */
 export interface ListOfCurrenciesByCodeResponse {
-    /** ListOfCurrenciesByCodeResult */
-    ListOfCurrenciesByCodeResult?: ListOfCurrenciesByNameResult
+    /** ArrayOftCurrency */
+    ListOfCurrenciesByCodeResult?: ArrayOftCurrency
     /** Hold additional properties */
     [arg: string]: any
 }

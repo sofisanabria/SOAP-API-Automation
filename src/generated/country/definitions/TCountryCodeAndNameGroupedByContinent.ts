@@ -1,5 +1,5 @@
 import { TContinent } from './TContinent'
-import { ListOfCountryNamesByCodeResult } from './ListOfCountryNamesByCodeResult'
+import { ArrayOftCountryCodeAndName } from './ArrayOftCountryCodeAndName'
 
 /**
  * tCountryCodeAndNameGroupedByContinent
@@ -7,10 +7,10 @@ import { ListOfCountryNamesByCodeResult } from './ListOfCountryNamesByCodeResult
  * @targetNamespace `http://www.oorsprong.org/websamples.countryinfo`
  */
 export interface TCountryCodeAndNameGroupedByContinent {
-    /** Continent */
+    /** tContinent */
     Continent?: TContinent
-    /** CountryCodeAndNames */
-    CountryCodeAndNames?: ListOfCountryNamesByCodeResult
+    /** ArrayOftCountryCodeAndName */
+    CountryCodeAndNames?: ArrayOftCountryCodeAndName
     /** Hold additional properties */
     [arg: string]: any
 }

@@ -1,11 +1,11 @@
-import { Languages } from './Languages'
+import { ArrayOftLanguage } from './ArrayOftLanguage'
 
 /**
- * FullCountryInfoResult
+ * tCountryInfo
  * @targetNSAlias `tns`
  * @targetNamespace `http://www.oorsprong.org/websamples.countryinfo`
  */
-export interface FullCountryInfoResult {
+export interface TCountryInfo {
     /** xs:string */
     sISOCode?: string
     /** xs:string */
@@ -20,8 +20,8 @@ export interface FullCountryInfoResult {
     sCurrencyISOCode?: string
     /** xs:string */
     sCountryFlag?: string
-    /** Languages */
-    Languages?: Languages
+    /** ArrayOftLanguage */
+    Languages?: ArrayOftLanguage
     /** Hold additional properties */
     [arg: string]: any
 }

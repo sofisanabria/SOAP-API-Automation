@@ -1,9 +1,9 @@
-import { Languages } from './Languages'
+import { ArrayOftLanguage } from './ArrayOftLanguage'
 
 /** ListOfLanguagesByNameResponse */
 export interface ListOfLanguagesByNameResponse {
-    /** ListOfLanguagesByNameResult */
-    ListOfLanguagesByNameResult?: Languages
+    /** ArrayOftLanguage */
+    ListOfLanguagesByNameResult?: ArrayOftLanguage
     /** Hold additional properties */
     [arg: string]: any
 }

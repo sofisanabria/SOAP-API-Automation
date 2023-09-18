@@ -1,9 +1,9 @@
-import { ListOfCountryNamesGroupedByContinentResult } from './ListOfCountryNamesGroupedByContinentResult'
+import { ArrayOftCountryCodeAndNameGroupedByContinent } from './ArrayOftCountryCodeAndNameGroupedByContinent'
 
 /** ListOfCountryNamesGroupedByContinentResponse */
 export interface ListOfCountryNamesGroupedByContinentResponse {
-    /** ListOfCountryNamesGroupedByContinentResult */
-    ListOfCountryNamesGroupedByContinentResult?: ListOfCountryNamesGroupedByContinentResult
+    /** ArrayOftCountryCodeAndNameGroupedByContinent */
+    ListOfCountryNamesGroupedByContinentResult?: ArrayOftCountryCodeAndNameGroupedByContinent
     /** Hold additional properties */
     [arg: string]: any
 }

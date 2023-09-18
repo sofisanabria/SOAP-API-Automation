@@ -1,9 +1,9 @@
-import { FullCountryInfoResult } from './FullCountryInfoResult'
+import { TCountryInfo } from './TCountryInfo'
 
 /** FullCountryInfoResponse */
 export interface FullCountryInfoResponse {
-    /** FullCountryInfoResult */
-    FullCountryInfoResult?: FullCountryInfoResult
+    /** tCountryInfo */
+    FullCountryInfoResult?: TCountryInfo
     /** Hold additional properties */
     [arg: string]: any
 }

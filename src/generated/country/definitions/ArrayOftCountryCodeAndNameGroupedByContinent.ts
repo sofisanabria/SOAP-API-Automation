@@ -1,12 +1,12 @@
 import { TCountryCodeAndNameGroupedByContinent } from './TCountryCodeAndNameGroupedByContinent'
 
 /**
- * ListOfCountryNamesGroupedByContinentResult
+ * ArrayOftCountryCodeAndNameGroupedByContinent
  * @targetNSAlias `tns`
  * @targetNamespace `http://www.oorsprong.org/websamples.countryinfo`
  */
-export interface ListOfCountryNamesGroupedByContinentResult {
-    /** tCountryCodeAndNameGroupedByContinent[] */
+export interface ArrayOftCountryCodeAndNameGroupedByContinent {
+    /** tCountryCodeAndNameGroupedByContinent */
     tCountryCodeAndNameGroupedByContinent?: Array<TCountryCodeAndNameGroupedByContinent>
     /** Hold additional properties */
     [arg: string]: any

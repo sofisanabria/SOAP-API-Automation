@@ -1,9 +1,9 @@
-import { FullCountryInfoAllCountriesResult } from './FullCountryInfoAllCountriesResult'
+import { ArrayOftCountryInfo } from './ArrayOftCountryInfo'
 
 /** FullCountryInfoAllCountriesResponse */
 export interface FullCountryInfoAllCountriesResponse {
-    /** FullCountryInfoAllCountriesResult */
-    FullCountryInfoAllCountriesResult?: FullCountryInfoAllCountriesResult
+    /** ArrayOftCountryInfo */
+    FullCountryInfoAllCountriesResult?: ArrayOftCountryInfo
     /** Hold additional properties */
     [arg: string]: any
 }

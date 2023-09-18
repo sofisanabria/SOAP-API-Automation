@@ -1,9 +1,9 @@
-import { ListOfContinentsByNameResult } from './ListOfContinentsByNameResult'
+import { ArrayOftContinent } from './ArrayOftContinent'
 
 /** ListOfContinentsByCodeResponse */
 export interface ListOfContinentsByCodeResponse {
-    /** ListOfContinentsByCodeResult */
-    ListOfContinentsByCodeResult?: ListOfContinentsByNameResult
+    /** ArrayOftContinent */
+    ListOfContinentsByCodeResult?: ArrayOftContinent
     /** Hold additional properties */
     [arg: string]: any
 }
