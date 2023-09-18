@@ -8,7 +8,9 @@ describe('Country Language Tests', () => {
     let client: CountryClient
 
     before(async () => {
-        client = await ApiClient.getClient<CountryClient>()
+        client = await ApiClient.getClient<CountryClient>({
+            url: './resources/country.wsdl',
+        })
     })
 
     it(`should throw and error`, async () => {

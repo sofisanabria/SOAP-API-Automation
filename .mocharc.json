@@ -5,5 +5,5 @@
         "mocha.cjs"
     ],
     "reporter": "mochawesome",
-    "reporterOption": ["reportFilename=soap-country-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,autoOpen=true,overwrite=true,timestamp=mmddyyyy-HHMMss,enableCharts=true,enableCode=true"]
+    "reporterOption": ["reportFilename=soap-country-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,timestamp=mmddyyyy-HHMMss,enableCharts=true,enableCode=true"]
 }

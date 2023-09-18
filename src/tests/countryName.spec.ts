@@ -1,12 +1,19 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
 import { CountryClient, CountryIsoCode } from '../generated/country'
+import { customCountryNameService } from './mocks/customCountryService'
 
 describe('Country Name Tests', () => {
     let client: CountryClient
 
     before(async () => {
-        client = await ApiClient.getClient<CountryClient>()
+        client = await ApiClient.getClient<CountryClient>({
+            url: './resources/country.wsdl',
+        })
+    })
+
+    after(() => {
+        ApiClient.closeServer()
     })
 
     it('should correctly get the country name', async () => {
@@ -19,7 +26,7 @@ describe('Country Name Tests', () => {
         expect(response.CountryNameResult).to.equal('United States')
     })
 
-    describe.only('Example of test over a list', () => {
+    describe('Example of test over a list', () => {
         const countryList = [
             { countryIso: 'US', countryName: 'United States' },
             { countryIso: 'CA', countryName: 'Canada' },
@@ -40,7 +47,7 @@ describe('Country Name Tests', () => {
                 )
 
                 const result: CountryIsoCode = {
-                    sCountryName: response.CountryNameResult
+                    sCountryName: response.CountryNameResult,
                 }
 
                 const [isoResponse] = await client.CountryISOCodeAsync(result)
@@ -75,31 +82,20 @@ describe('Country Name Tests', () => {
         )
     })
 
-    it.skip('custom service example', async () => {
-        const customService = {
-            CountryInfoService: {
-                CountryInfoServiceSoap: {
-                    CountryName: (args: any) => {
-                        console.log(args)
-                        return {
-                            CountryNameResult: 'English',
-                        }
-                    },
-                },
-            },
-        }
-        const server = await ApiClient.getServer(customService, '/Mock')
-        server.log = function (type, data) {
-            console.log('Type: ' + type + ' data: ' + data)
-        }
-        const customClient = await ApiClient.getClient<CountryClient>(
-            'http://localhost:8002/Mock?wsdl',
+    it('custom service example', async () => {
+        await ApiClient.getServer(
+            './resources/country.wsdl',
+            '/Mock',
+            customCountryNameService,
         )
+
+        const customClient = await ApiClient.getClient<CountryClient>({
+            url: '/Mock?wsdl',
+            mock: true,
+        })
         const language: CountryIsoCode = {
             sCountryISOCode: 'Pepe',
         }
-
-        console.log(customClient.describe())
 
         const result = await customClient.CountryNameAsync(language)
 

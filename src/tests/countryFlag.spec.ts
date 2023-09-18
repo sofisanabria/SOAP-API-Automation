@@ -6,7 +6,9 @@ describe('Country Flag Tests', () => {
     let client: CountryClient
 
     before(async () => {
-        client = await ApiClient.getClient<CountryClient>()
+        client = await ApiClient.getClient<CountryClient>({
+            url: './resources/country.wsdl',
+        })
     })
 
     const countryList = [
