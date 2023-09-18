@@ -8,5 +8,6 @@ import { TLanguage } from './TLanguage'
 export interface Languages {
     /** tLanguage[] */
     tLanguage?: Array<TLanguage>
+    /** Hold additional properties */
     [arg: string]: any
 }

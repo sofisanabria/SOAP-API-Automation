@@ -4,5 +4,6 @@ import { ListOfCountryNamesGroupedByContinentResult } from './ListOfCountryNames
 export interface ListOfCountryNamesGroupedByContinentResponse {
     /** ListOfCountryNamesGroupedByContinentResult */
     ListOfCountryNamesGroupedByContinentResult?: ListOfCountryNamesGroupedByContinentResult
+    /** Hold additional properties */
     [arg: string]: any
 }

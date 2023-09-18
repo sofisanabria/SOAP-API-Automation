@@ -8,5 +8,6 @@ import { TCountryCodeAndNameGroupedByContinent } from './TCountryCodeAndNameGrou
 export interface ListOfCountryNamesGroupedByContinentResult {
     /** tCountryCodeAndNameGroupedByContinent[] */
     tCountryCodeAndNameGroupedByContinent?: Array<TCountryCodeAndNameGroupedByContinent>
+    /** Hold additional properties */
     [arg: string]: any
 }

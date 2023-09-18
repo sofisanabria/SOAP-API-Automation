@@ -8,5 +8,6 @@ import { TCountryCodeAndName } from './TCountryCodeAndName'
 export interface ListOfCountryNamesByCodeResult {
     /** tCountryCodeAndName[] */
     tCountryCodeAndName?: Array<TCountryCodeAndName>
+    /** Hold additional properties */
     [arg: string]: any
 }

@@ -11,5 +11,6 @@ export interface TCountryCodeAndNameGroupedByContinent {
     Continent?: TContinent
     /** CountryCodeAndNames */
     CountryCodeAndNames?: ListOfCountryNamesByCodeResult
+    /** Hold additional properties */
     [arg: string]: any
 }

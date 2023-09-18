@@ -1,6 +1,10 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
-import { CountryClient, CountryIsoCode } from '../generated/country'
+import {
+    CountryClient,
+    CountryIsoCode,
+    CountryName,
+} from '../generated/country'
 import { customCountryNameService } from './mocks/customCountryService'
 
 describe('Country Name Tests', () => {
@@ -36,7 +40,7 @@ describe('Country Name Tests', () => {
 
         for (const countryInfo of countryList) {
             it(`should correctly get the country name for ${countryInfo.countryIso}`, async () => {
-                const input = {
+                const input: CountryName = {
                     sCountryISOCode: countryInfo.countryIso,
                 }
 
@@ -83,7 +87,7 @@ describe('Country Name Tests', () => {
     })
 
     it('custom service example', async () => {
-        await ApiClient.getServer(
+        const server = await ApiClient.getService(
             './resources/country.wsdl',
             '/Mock',
             customCountryNameService,
@@ -91,6 +95,7 @@ describe('Country Name Tests', () => {
 
         const customClient = await ApiClient.getClient<CountryClient>({
             url: '/Mock?wsdl',
+            port: server.port,
             mock: true,
         })
         const language: CountryIsoCode = {

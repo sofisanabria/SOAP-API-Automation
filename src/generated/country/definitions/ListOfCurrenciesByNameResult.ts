@@ -8,5 +8,6 @@ import { TCurrency } from './TCurrency'
 export interface ListOfCurrenciesByNameResult {
     /** tCurrency[] */
     tCurrency?: Array<TCurrency>
+    /** Hold additional properties */
     [arg: string]: any
 }
