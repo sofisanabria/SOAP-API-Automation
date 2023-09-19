@@ -82,13 +82,18 @@ export class ApiClient {
         const result = await parseStringPromise(wsdlXml)
 
         // Modify the service port location
-        const service: any = result.definitions.service
+        const definitions: any =
+            result.definitions ?? result['wsdl:definitions']
+        const service: any = definitions.service ?? definitions['wsdl:service']
         for (const serviceEntry of Object.entries(service)) {
+            const serviceEntryValue = serviceEntry[1] as any
             for (const portEntry of Object.entries(
-                (serviceEntry[1] as any).port,
+                serviceEntryValue.port ?? serviceEntryValue['wsdl:port'],
             )) {
                 const value = portEntry[1] as any
-                if (value['soap:address']) {
+                if (value['address']) {
+                    value['address'][0].$.location = customServiceUrl
+                } else if (value['soap:address']) {
                     value['soap:address'][0].$.location = customServiceUrl
                 } else if (value['soap12:address']) {
                     value['soap12:address'][0].$.location = customServiceUrl

@@ -16,8 +16,8 @@ import { ListOfCountryNamesGroupedByContinent } from '../definitions/ListOfCount
 import { ListOfCountryNamesGroupedByContinentResponse } from '../definitions/ListOfCountryNamesGroupedByContinentResponse'
 import { CountryName } from '../definitions/CountryName'
 import { CountryNameResponse } from '../definitions/CountryNameResponse'
-import { CountryIsoCode1 } from '../definitions/CountryIsoCode1'
-import { CountryIsoCodeResponse1 } from '../definitions/CountryIsoCodeResponse1'
+import { CountryIsoCode } from '../definitions/CountryIsoCode'
+import { CountryIsoCodeResponse } from '../definitions/CountryIsoCodeResponse'
 import { CapitalCity } from '../definitions/CapitalCity'
 import { CapitalCityResponse } from '../definitions/CapitalCityResponse'
 import { CountryCurrency } from '../definitions/CountryCurrency'
@@ -38,8 +38,8 @@ import { ListOfLanguagesByCode } from '../definitions/ListOfLanguagesByCode'
 import { ListOfLanguagesByCodeResponse } from '../definitions/ListOfLanguagesByCodeResponse'
 import { LanguageName } from '../definitions/LanguageName'
 import { LanguageNameResponse } from '../definitions/LanguageNameResponse'
-import { LanguageIsoCode1 } from '../definitions/LanguageIsoCode1'
-import { LanguageIsoCodeResponse1 } from '../definitions/LanguageIsoCodeResponse1'
+import { LanguageIsoCode } from '../definitions/LanguageIsoCode'
+import { LanguageIsoCodeResponse } from '../definitions/LanguageIsoCodeResponse'
 
 export interface CountryInfoServiceSoap12 {
     ListOfContinentsByName(
@@ -160,10 +160,10 @@ export interface CountryInfoServiceSoap12 {
         extraHeaders?: { [k: string]: any },
     ): void
     CountryISOCode(
-        countryIsoCode: CountryIsoCode1,
+        countryIsoCode: CountryIsoCode,
         callback: (
             err: any,
-            result: CountryIsoCodeResponse1,
+            result: CountryIsoCodeResponse,
             rawResponse: any,
             soapHeader: { [k: string]: any },
             rawRequest: any,
@@ -303,10 +303,10 @@ export interface CountryInfoServiceSoap12 {
         extraHeaders?: { [k: string]: any },
     ): void
     LanguageISOCode(
-        languageIsoCode: LanguageIsoCode1,
+        languageIsoCode: LanguageIsoCode,
         callback: (
             err: any,
-            result: LanguageIsoCodeResponse1,
+            result: LanguageIsoCodeResponse,
             rawResponse: any,
             soapHeader: { [k: string]: any },
             rawRequest: any,

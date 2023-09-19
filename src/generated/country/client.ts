@@ -44,10 +44,6 @@ import { LanguageName } from './definitions/LanguageName'
 import { LanguageNameResponse } from './definitions/LanguageNameResponse'
 import { LanguageIsoCode } from './definitions/LanguageIsoCode'
 import { LanguageIsoCodeResponse } from './definitions/LanguageIsoCodeResponse'
-import { CountryIsoCode1 } from './definitions/CountryIsoCode1'
-import { CountryIsoCodeResponse1 } from './definitions/CountryIsoCodeResponse1'
-import { LanguageIsoCode1 } from './definitions/LanguageIsoCode1'
-import { LanguageIsoCodeResponse1 } from './definitions/LanguageIsoCodeResponse1'
 import { CountryInfoService } from './services/CountryInfoService'
 
 export interface CountryClient extends SoapClient {
@@ -443,12 +439,12 @@ export interface CountryClient extends SoapClient {
         ]
     >
     CountryISOCodeAsync(
-        countryIsoCode: CountryIsoCode1,
+        countryIsoCode: CountryIsoCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
     ): Promise<
         [
-            result: CountryIsoCodeResponse1,
+            result: CountryIsoCodeResponse,
             rawResponse: any,
             soapHeader: { [k: string]: any },
             rawRequest: any,
@@ -586,12 +582,12 @@ export interface CountryClient extends SoapClient {
         ]
     >
     LanguageISOCodeAsync(
-        languageIsoCode: LanguageIsoCode1,
+        languageIsoCode: LanguageIsoCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
     ): Promise<
         [
-            result: LanguageIsoCodeResponse1,
+            result: LanguageIsoCodeResponse,
             rawResponse: any,
             soapHeader: { [k: string]: any },
             rawRequest: any,
