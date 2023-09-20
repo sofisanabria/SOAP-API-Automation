@@ -40,9 +40,9 @@ describe('Country Flag Tests', () => {
                 sCountryISOCode: countryInfo.countryIso,
             }
 
-            const { result } = await client.CountryFlagAsync(input)
+            const operationResult = await client.CountryFlagAsync(input)
 
-            expect(result.CountryFlagResult).to.equal(
+            expect(operationResult.result.CountryFlagResult).to.equal(
                 countryInfo.countryFlagLink,
             )
         })

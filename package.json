@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 60000",
-    "test:parallel": "mocha --timeout 60000 --parallel --require mochawesome/register.js",
+    "test": "mocha",
+    "test:parallel": "mocha --parallel",
+    "test:smoke": "mocha --tags Smoke --parallel",
     "lint": "eslint ./src --ext .ts",
     "lint:fix": "eslint ./src --ext .ts --fix",
     "prettify": "prettier --write ./src/**/*.ts",
@@ -32,16 +33,16 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "arg": "^5.0.2",
     "axios": "^0.27.2",
     "axios-logger": "^2.7.0",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
-    "mocha-tags": "^1.0.1",
     "rimraf": "^5.0.1",
-    "soap": "github:Shadowsx3/node-soap",
+    "soap4test": "^1.0.0",
     "ts-node": "^10.9.1",
-    "wsdl-two-ts": "github:Shadowsx3/wsdl-tsclient",
+    "wsdl4ts": "^1.0.2",
     "xml2js": "^0.6.2"
   }
 }

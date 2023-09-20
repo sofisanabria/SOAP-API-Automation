@@ -3,7 +3,7 @@ import { ApiClient, SoapError } from '../client/ApiClientBase'
 import { CountryClient, CountryIsoCode } from '../generated/country'
 import { customCapitalCityService } from './mocks/customCapitalCityService'
 
-describe('Country Name Tests', () => {
+describe('Capital City Tests', () => {
     let client: CountryClient
     let mockClient: CountryClient
 
@@ -27,7 +27,7 @@ describe('Country Name Tests', () => {
         ApiClient.closeServer()
     })
 
-    it('Should work', async () => {
+    it('Should work -@ Mock', async () => {
         const input: CountryIsoCode = {
             sCountryISOCode: 'UA',
         }
@@ -42,7 +42,7 @@ describe('Country Name Tests', () => {
         )
     })
 
-    it('Should trigger a soap fault', async () => {
+    it('Should trigger a soap fault -@ Mock', async () => {
         const input: CountryIsoCode = {
             sCountryISOCode: 'US',
         }

@@ -1,7 +1,7 @@
 import {
-    Client as SoapClient,
+    Client as soapClient,
     createClientAsync as soapCreateClientAsync,
-} from 'soap'
+} from 'soap4test'
 import { ListOfContinentsByName } from './definitions/ListOfContinentsByName'
 import { ListOfContinentsByNameResponse } from './definitions/ListOfContinentsByNameResponse'
 import { ListOfContinentsByCode } from './definitions/ListOfContinentsByCode'
@@ -46,7 +46,7 @@ import { LanguageIsoCode } from './definitions/LanguageIsoCode'
 import { LanguageIsoCodeResponse } from './definitions/LanguageIsoCodeResponse'
 import { CountryInfoService } from './services/CountryInfoService'
 
-export interface CountryClient extends SoapClient {
+export interface CountryClient extends soapClient {
     CountryInfoService: CountryInfoService
     ListOfContinentsByNameAsync(
         listOfContinentsByName: ListOfContinentsByName,

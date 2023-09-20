@@ -1,7 +1,6 @@
 import { expect } from 'chai'
 import { ApiClient, SoapError } from '../client/ApiClientBase'
 import { CountryClient, LanguageIsoCode } from '../generated/country'
-import { Server } from 'soap'
 
 describe('Country Language Tests', () => {
     let client: CountryClient

@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import * as AxiosLogger from 'axios-logger'
 import axios from 'axios'
-import { createClientAsync, listen } from 'soap'
+import { createClientAsync, listen } from 'soap4test'
 import http from 'http'
 import { readFileSync } from 'fs'
 import { Builder, parseStringPromise } from 'xml2js'

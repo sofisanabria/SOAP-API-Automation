@@ -20,7 +20,7 @@ describe('Country Name Tests', () => {
         ApiClient.closeServer()
     })
 
-    it('should correctly get the country name', async () => {
+    it('should correctly get the country name -@ Smoke', async () => {
         const input = {
             $xml: '<sCountryISOCode>US</sCountryISOCode>',
         }
@@ -29,7 +29,7 @@ describe('Country Name Tests', () => {
         expect(operation.result.CountryNameResult).to.equal('United States')
     })
 
-    describe('Example of test over a list', () => {
+    describe('Example of test over a list -@ Smoke', () => {
         const countryList = [
             { countryIso: 'US', countryName: 'United States' },
             { countryIso: 'CA', countryName: 'Canada' },
@@ -63,7 +63,7 @@ describe('Country Name Tests', () => {
         }
     })
 
-    it('should return an error when the country code is invalid', async () => {
+    it('should return an error when the country code is invalid -@ Smoke', async () => {
         const input = {
             sCountryISOCode: '',
         }
@@ -86,7 +86,7 @@ describe('Country Name Tests', () => {
         )
     })
 
-    it('custom service example', async () => {
+    it('custom service example -@ Mock', async () => {
         const server = await ApiClient.getService(
             './resources/country.wsdl',
             '/Mock',
