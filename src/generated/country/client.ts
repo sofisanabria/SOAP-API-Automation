@@ -52,548 +52,590 @@ export interface CountryClient extends SoapClient {
         listOfContinentsByName: ListOfContinentsByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfContinentsByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfContinentsByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfContinentsByCodeAsync(
         listOfContinentsByCode: ListOfContinentsByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfContinentsByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfContinentsByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCurrenciesByNameAsync(
         listOfCurrenciesByName: ListOfCurrenciesByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCurrenciesByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCurrenciesByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCurrenciesByCodeAsync(
         listOfCurrenciesByCode: ListOfCurrenciesByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCurrenciesByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCurrenciesByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CurrencyNameAsync(
         currencyName: CurrencyName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CurrencyNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CurrencyNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCountryNamesByCodeAsync(
         listOfCountryNamesByCode: ListOfCountryNamesByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCountryNamesByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCountryNamesByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCountryNamesByNameAsync(
         listOfCountryNamesByName: ListOfCountryNamesByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCountryNamesByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCountryNamesByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCountryNamesGroupedByContinentAsync(
         listOfCountryNamesGroupedByContinent: ListOfCountryNamesGroupedByContinent,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCountryNamesGroupedByContinentResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCountryNamesGroupedByContinentResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryNameAsync(
         countryName: CountryName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryISOCodeAsync(
         countryIsoCode: CountryIsoCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryIsoCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryIsoCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CapitalCityAsync(
         capitalCity: CapitalCity,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CapitalCityResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CapitalCityResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryCurrencyAsync(
         countryCurrency: CountryCurrency,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryCurrencyResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryCurrencyResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryFlagAsync(
         countryFlag: CountryFlag,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryFlagResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryFlagResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryIntPhoneCodeAsync(
         countryIntPhoneCode: CountryIntPhoneCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryIntPhoneCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryIntPhoneCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     FullCountryInfoAsync(
         fullCountryInfo: FullCountryInfo,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: FullCountryInfoResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: FullCountryInfoResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     FullCountryInfoAllCountriesAsync(
         fullCountryInfoAllCountries: FullCountryInfoAllCountries,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: FullCountryInfoAllCountriesResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: FullCountryInfoAllCountriesResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountriesUsingCurrencyAsync(
         countriesUsingCurrency: CountriesUsingCurrency,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountriesUsingCurrencyResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountriesUsingCurrencyResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfLanguagesByNameAsync(
         listOfLanguagesByName: ListOfLanguagesByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfLanguagesByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfLanguagesByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfLanguagesByCodeAsync(
         listOfLanguagesByCode: ListOfLanguagesByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfLanguagesByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfLanguagesByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     LanguageNameAsync(
         languageName: LanguageName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: LanguageNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: LanguageNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     LanguageISOCodeAsync(
         languageIsoCode: LanguageIsoCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: LanguageIsoCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: LanguageIsoCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfContinentsByNameAsync(
         listOfContinentsByName: ListOfContinentsByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfContinentsByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfContinentsByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfContinentsByCodeAsync(
         listOfContinentsByCode: ListOfContinentsByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfContinentsByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfContinentsByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCurrenciesByNameAsync(
         listOfCurrenciesByName: ListOfCurrenciesByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCurrenciesByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCurrenciesByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCurrenciesByCodeAsync(
         listOfCurrenciesByCode: ListOfCurrenciesByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCurrenciesByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCurrenciesByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CurrencyNameAsync(
         currencyName: CurrencyName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CurrencyNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CurrencyNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCountryNamesByCodeAsync(
         listOfCountryNamesByCode: ListOfCountryNamesByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCountryNamesByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCountryNamesByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCountryNamesByNameAsync(
         listOfCountryNamesByName: ListOfCountryNamesByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCountryNamesByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCountryNamesByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfCountryNamesGroupedByContinentAsync(
         listOfCountryNamesGroupedByContinent: ListOfCountryNamesGroupedByContinent,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfCountryNamesGroupedByContinentResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfCountryNamesGroupedByContinentResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryNameAsync(
         countryName: CountryName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryISOCodeAsync(
         countryIsoCode: CountryIsoCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryIsoCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryIsoCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CapitalCityAsync(
         capitalCity: CapitalCity,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CapitalCityResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CapitalCityResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryCurrencyAsync(
         countryCurrency: CountryCurrency,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryCurrencyResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryCurrencyResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryFlagAsync(
         countryFlag: CountryFlag,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryFlagResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryFlagResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountryIntPhoneCodeAsync(
         countryIntPhoneCode: CountryIntPhoneCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountryIntPhoneCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountryIntPhoneCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     FullCountryInfoAsync(
         fullCountryInfo: FullCountryInfo,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: FullCountryInfoResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: FullCountryInfoResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     FullCountryInfoAllCountriesAsync(
         fullCountryInfoAllCountries: FullCountryInfoAllCountries,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: FullCountryInfoAllCountriesResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: FullCountryInfoAllCountriesResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     CountriesUsingCurrencyAsync(
         countriesUsingCurrency: CountriesUsingCurrency,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: CountriesUsingCurrencyResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: CountriesUsingCurrencyResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfLanguagesByNameAsync(
         listOfLanguagesByName: ListOfLanguagesByName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfLanguagesByNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfLanguagesByNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     ListOfLanguagesByCodeAsync(
         listOfLanguagesByCode: ListOfLanguagesByCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: ListOfLanguagesByCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: ListOfLanguagesByCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     LanguageNameAsync(
         languageName: LanguageName,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: LanguageNameResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: LanguageNameResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
     LanguageISOCodeAsync(
         languageIsoCode: LanguageIsoCode,
         options?: any,
         extraHeaders?: { [k: string]: any },
-    ): Promise<
-        [
-            result: LanguageIsoCodeResponse,
-            rawResponse: any,
-            soapHeader: { [k: string]: any },
-            rawRequest: any,
-            mtomAttachments: any,
-        ]
-    >
+    ): Promise<{
+        err: any
+        result: LanguageIsoCodeResponse
+        soapHeader: { [k: string]: any }
+        httpHeader: any
+        soapResponse: any
+        rawResponse: any
+        rawRequest: any
+        mtomAttachments: any
+    }>
 }
 
 /** Create CountryClient */

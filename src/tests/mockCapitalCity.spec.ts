@@ -32,12 +32,14 @@ describe('Country Name Tests', () => {
             sCountryISOCode: 'UA',
         }
 
-        const [originalResult] = await client.CapitalCityAsync(input)
+        const originalOperation = await client.CapitalCityAsync(input)
 
-        const [res] = await mockClient.CapitalCityAsync(input)
+        const mockOperation = await mockClient.CapitalCityAsync(input)
 
-        expect(originalResult.CapitalCityResult).to.equal('Kiev')
-        expect(res.CapitalCityResult).to.equal('UA Capital City')
+        expect(originalOperation.result.CapitalCityResult).to.equal('Kiev')
+        expect(mockOperation.result.CapitalCityResult).to.equal(
+            'UA Capital City',
+        )
     })
 
     it('Should trigger a soap fault', async () => {
@@ -45,15 +47,13 @@ describe('Country Name Tests', () => {
             sCountryISOCode: 'US',
         }
 
-        try {
-            await mockClient.CapitalCityAsync(input)
-        } catch (error: any) {
-            const soapError = error as SoapError
-            expect(soapError.response?.status).to.equal(500)
-            const fault = soapError.root?.Envelope.Body.Fault
-            expect(fault.Code.Value).to.equal('soap:Sender')
-            expect(fault.Reason.Text).to.equal('Processing Error')
-            expect(fault.Code.Subcode.value).to.equal('rpc:City')
-        }
+        const operationResult = await mockClient.CapitalCityAsync(input)
+
+        const soapError = operationResult.err
+        expect(soapError.response?.status).to.equal(500)
+        const fault = soapError.root?.Envelope.Body.Fault
+        expect(fault.Code.Value).to.equal('soap:Sender')
+        expect(fault.Reason.Text).to.equal('Processing Error')
+        expect(fault.Code.Subcode.value).to.equal('rpc:City')
     })
 })

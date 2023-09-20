@@ -22,12 +22,11 @@ describe('Country Name Tests', () => {
 
     it('should correctly get the country name', async () => {
         const input = {
-            sCountryISOCode: 'US',
+            $xml: '<sCountryISOCode>US</sCountryISOCode>',
         }
+        const operation = await client.CountryNameAsync(input)
 
-        const [response] = await client.CountryNameAsync(input)
-
-        expect(response.CountryNameResult).to.equal('United States')
+        expect(operation.result.CountryNameResult).to.equal('United States')
     })
 
     describe('Example of test over a list', () => {
@@ -44,19 +43,20 @@ describe('Country Name Tests', () => {
                     sCountryISOCode: countryInfo.countryIso,
                 }
 
-                const [response] = await client.CountryNameAsync(input)
+                const { result } = await client.CountryNameAsync(input)
 
-                expect(response.CountryNameResult).to.equal(
+                expect(result.CountryNameResult).to.equal(
                     countryInfo.countryName,
                 )
 
-                const result: CountryIsoCode = {
-                    sCountryName: response.CountryNameResult,
+                const isoCode: CountryIsoCode = {
+                    sCountryName: result.CountryNameResult,
                 }
 
-                const [isoResponse] = await client.CountryISOCodeAsync(result)
+                const countyOperation =
+                    await client.CountryISOCodeAsync(isoCode)
 
-                expect(isoResponse.CountryISOCodeResult).to.equal(
+                expect(countyOperation.result.CountryISOCodeResult).to.equal(
                     countryInfo.countryIso,
                 )
             })
@@ -68,7 +68,7 @@ describe('Country Name Tests', () => {
             sCountryISOCode: '',
         }
 
-        const [result] = await client.CountryNameAsync(input)
+        const { result } = await client.CountryNameAsync(input)
 
         expect(result.CountryNameResult).to.equal(
             'Country not found in the database',
@@ -80,7 +80,7 @@ describe('Country Name Tests', () => {
             sCountryISOCode: '123',
         }
 
-        const [result] = await client.CountryNameAsync(input)
+        const { result } = await client.CountryNameAsync(input)
         expect(result.CountryNameResult).to.equal(
             'Country not found in the database',
         )
@@ -102,8 +102,8 @@ describe('Country Name Tests', () => {
             sCountryISOCode: 'Pepe',
         }
 
-        const result = await customClient.CountryNameAsync(language)
+        const { result } = await customClient.CountryNameAsync(language)
 
-        expect(result[0].CountryNameResult).to.equal('English')
+        expect(result.CountryNameResult).to.equal('English')
     })
 })

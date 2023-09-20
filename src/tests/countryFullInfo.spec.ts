@@ -36,9 +36,9 @@ describe('Full Country Info Tests', () => {
                 sCountryISOCode: countryInfo.countryIso,
             }
 
-            const [response] = await client.FullCountryInfoAsync(input)
+            const { result } = await client.FullCountryInfoAsync(input)
 
-            expect(response.FullCountryInfoResult).to.deep.equal(
+            expect(result.FullCountryInfoResult).to.deep.equal(
                 countryInfo.expectedInfo,
             )
         })

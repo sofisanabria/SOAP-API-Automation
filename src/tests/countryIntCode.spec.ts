@@ -36,9 +36,9 @@ describe('Country IntPhoneCode Tests', () => {
                 sCountryISOCode: countryInfo.countryIso,
             }
 
-            const [response] = await client.CountryIntPhoneCodeAsync(input)
+            const { result } = await client.CountryIntPhoneCodeAsync(input)
 
-            expect(response.CountryIntPhoneCodeResult).to.equal(
+            expect(result.CountryIntPhoneCodeResult).to.equal(
                 countryInfo.intPhoneCode,
             )
         })

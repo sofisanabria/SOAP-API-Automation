@@ -74,7 +74,7 @@ export class ApiClient {
         return (await createClientAsync(path, {
             returnFault: true,
             request: axiosInstance,
-            parseReponseAttachments: true,
+            parseResponseAttachments: false,
         })) as T
     }
 
