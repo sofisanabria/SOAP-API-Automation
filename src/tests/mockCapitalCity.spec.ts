@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { ApiClient, SoapError } from '../client/ApiClientBase'
 import { CountryClient, CountryIsoCode } from '../generated/country'
-import { customCapitalCityService } from './mocks/customCapitalCityService'
+import { customCapitalCityService } from '../mocks/customCapitalCityService'
 
 describe('Capital City Tests', () => {
     let client: CountryClient
@@ -47,7 +47,21 @@ describe('Capital City Tests', () => {
             sCountryISOCode: 'US',
         }
 
-        const operationResult = await mockClient.CapitalCityAsync(input)
+        const htmlHeaders = {
+            'Content-Topo': 'topo',
+        }
+
+        const soapHeaders: CountryIsoCode = {
+            hola: 'US',
+        }
+
+        const operationResult = await mockClient.CapitalCityAsync(
+            input,
+            {
+                extraHeaders: htmlHeaders,
+            },
+            soapHeaders,
+        )
 
         const soapError = operationResult.err
         expect(soapError.response?.status).to.equal(500)
@@ -55,5 +69,19 @@ describe('Capital City Tests', () => {
         expect(fault.Code.Value).to.equal('soap:Sender')
         expect(fault.Reason.Text).to.equal('Processing Error')
         expect(fault.Code.Subcode.value).to.equal('rpc:City')
+
+        mockClient.addSoapHeader({ sampleSharedHeader: 'lol' })
+        await mockClient.CapitalCityAsync(
+            input,
+            {
+                extraHeaders: htmlHeaders,
+            },
+            {
+                hello: 'adios',
+                anotherProperty: {
+                    $xml: '<headerCustom>withoutJson</headerCustom>',
+                },
+            },
+        )
     })
 })

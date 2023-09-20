@@ -1,4 +1,4 @@
-import { CapitalCity, CapitalCityResponse } from '../../generated/country'
+import { CapitalCity, CapitalCityResponse } from '../generated/country'
 
 const customCapitalCityService = {
     CountryInfoService: {
@@ -10,7 +10,7 @@ const customCapitalCityService = {
                 req: any,
             ): CapitalCityResponse => {
                 console.log('Capital City', args, headers)
-                console.log('From req', req.connection.remoteAddress)
+                console.log('From headers', req.headers)
                 if (args.sCountryISOCode == 'US') {
                     throw {
                         Fault: {

@@ -5,7 +5,7 @@ import {
     CountryIsoCode,
     CountryName,
 } from '../generated/country'
-import { customCountryNameService } from './mocks/customCountryService'
+import { customCountryNameService } from '../mocks/customCountryService'
 
 describe('Country Name Tests', () => {
     let client: CountryClient

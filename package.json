@@ -40,7 +40,7 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "rimraf": "^5.0.1",
-    "soap4test": "^1.0.0",
+    "soap4test": "^1.0.2",
     "ts-node": "^10.9.1",
     "wsdl4ts": "^1.0.2",
     "xml2js": "^0.6.2"
