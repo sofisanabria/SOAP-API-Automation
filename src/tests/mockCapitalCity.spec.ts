@@ -14,11 +14,6 @@ describe('Capital City Tests', () => {
             '/Mock',
             customCapitalCityService,
         )
-        await ApiClient.createService(
-            './resources/country.wsdl',
-            '/Mockito',
-            customCapitalCityService,
-        )
         mockClient = await ApiClient.getClient<CountryClient>(
             {
                 url: '/Mock',

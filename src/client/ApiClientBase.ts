@@ -126,7 +126,25 @@ export class ApiClient {
         port?: number,
     ) {
         const app = ApiClient.createServer(port)
-        const wsdlXml = readFileSync(wsdl, 'utf8')
+        let wsdlXml: string
+
+        if (/^https?:\/\//i.test(wsdl)) {
+            try {
+                const response = await axios.get(wsdl)
+                wsdlXml = response.data
+            } catch (err) {
+                throw new Error(`Error downloading WSDL from "${wsdl}": ${err}`)
+            }
+        } else {
+            try {
+                wsdlXml = readFileSync(wsdl, 'utf8')
+            } catch (err) {
+                throw new Error(
+                    `Error reading local WSDL file "${wsdl}": ${err}`,
+                )
+            }
+        }
+
         const newWsdl = await modifyWsdl(
             wsdlXml,
             `http://localhost:${this.getServerPort()}${soapServiceUrl}`,

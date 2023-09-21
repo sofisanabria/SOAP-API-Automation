@@ -12,7 +12,8 @@
     "prettify": "prettier --write ./src/**/*.ts",
     "clean": "npx rimraf ./src/generated",
     "clean:report": "npx rimraf ./reports",
-    "generate": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl --quiet && eslint ./src/generated --fix"
+    "generate": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl --quiet && eslint ./src/generated --fix",
+    "generate:multi": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL --verbose && eslint ./src/generated --fix"
   },
   "author": "",
   "license": "ISC",
@@ -43,7 +44,7 @@
     "rimraf": "^5.0.1",
     "soap4test": "^1.0.2",
     "ts-node": "^10.9.1",
-    "wsdl4ts": "^1.0.2",
+    "wsdl4ts": "^1.0.5",
     "xml2js": "^0.6.2"
   }
 }
