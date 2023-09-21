@@ -1,33 +1,44 @@
 import { expect } from 'chai'
-import { ApiClient, SoapError } from '../client/ApiClientBase'
+import { ApiClient } from '../client/ApiClientBase'
 import { CountryClient, CountryIsoCode } from '../generated/country'
 import { customCapitalCityService } from '../mocks/customCapitalCityService'
+import { ExtendedClient } from '../client/utils'
 
 describe('Capital City Tests', () => {
-    let client: CountryClient
-    let mockClient: CountryClient
+    let client: ExtendedClient<CountryClient>
+    let mockClient: ExtendedClient<CountryClient>
 
-    before(async () => {
-        const server = await ApiClient.getService(
+    before(async function () {
+        await ApiClient.createService(
             './resources/country.wsdl',
             '/Mock',
             customCapitalCityService,
         )
-        mockClient = await ApiClient.getClient<CountryClient>({
-            url: '/Mock?wsdl',
-            port: server.port,
-            mock: true,
-        })
-        client = await ApiClient.getClient<CountryClient>({
-            url: './resources/country.wsdl',
-        })
+        await ApiClient.createService(
+            './resources/country.wsdl',
+            '/Mockito',
+            customCapitalCityService,
+        )
+        mockClient = await ApiClient.getClient<CountryClient>(
+            {
+                url: '/Mock',
+                mock: true,
+            },
+            { contextToReport: this },
+        )
+        client = await ApiClient.getClient<CountryClient>(
+            {
+                url: './resources/country.wsdl',
+            },
+            { contextToReport: this },
+        )
     })
 
     after(() => {
         ApiClient.closeServer()
     })
 
-    it('Should work -@ Mock', async () => {
+    it('Should work -@ Mock', async function () {
         const input: CountryIsoCode = {
             sCountryISOCode: 'UA',
         }

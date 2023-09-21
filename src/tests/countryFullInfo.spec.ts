@@ -1,14 +1,18 @@
 import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
 import { CountryClient } from '../generated/country'
+import { ExtendedClient } from '../client/utils'
 
 describe('Full Country Info Tests', () => {
-    let client: CountryClient
+    let client: ExtendedClient<CountryClient>
 
-    before(async () => {
-        client = await ApiClient.getClient<CountryClient>({
-            url: './resources/country.wsdl',
-        })
+    before(async function () {
+        client = await ApiClient.getClient<CountryClient>(
+            {
+                url: './resources/country.wsdl',
+            },
+            { contextToReport: this },
+        )
     })
 
     const countryList = [

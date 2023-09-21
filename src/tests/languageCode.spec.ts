@@ -1,17 +1,21 @@
 import { expect } from 'chai'
-import { ApiClient, SoapError } from '../client/ApiClientBase'
+import { ApiClient } from '../client/ApiClientBase'
 import { CountryClient, LanguageIsoCode } from '../generated/country'
+import { ExtendedClient } from '../client/utils'
 
 describe('Country Language Tests', () => {
-    let client: CountryClient
+    let client: ExtendedClient<CountryClient>
 
-    before(async () => {
-        client = await ApiClient.getClient<CountryClient>({
-            url: './resources/country.wsdl',
-        })
+    before(async function () {
+        client = await ApiClient.getClient<CountryClient>(
+            {
+                url: './resources/country.wsdl',
+            },
+            { contextToReport: this },
+        )
     })
 
-    it(`should throw and error`, async () => {
+    it(`should throw and error`, async function () {
         const language: LanguageIsoCode = {
             sLanguageName: 'English',
         }

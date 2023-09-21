@@ -6,14 +6,18 @@ import {
     CountryName,
 } from '../generated/country'
 import { customCountryNameService } from '../mocks/customCountryService'
+import { ExtendedClient } from '../client/utils'
 
 describe('Country Name Tests', () => {
-    let client: CountryClient
+    let client: ExtendedClient<CountryClient>
 
-    before(async () => {
-        client = await ApiClient.getClient<CountryClient>({
-            url: './resources/country.wsdl',
-        })
+    before(async function () {
+        client = await ApiClient.getClient<CountryClient>(
+            {
+                url: './resources/country.wsdl',
+            },
+            { contextToReport: this },
+        )
     })
 
     after(() => {
@@ -30,6 +34,10 @@ describe('Country Name Tests', () => {
     })
 
     describe('Example of test over a list -@ Smoke', () => {
+        before(async function () {
+            client.updateContext(this)
+        })
+
         const countryList = [
             { countryIso: 'US', countryName: 'United States' },
             { countryIso: 'CA', countryName: 'Canada' },
@@ -86,18 +94,20 @@ describe('Country Name Tests', () => {
         )
     })
 
-    it('custom service example -@ Mock', async () => {
-        const server = await ApiClient.getService(
+    it('custom service example -@ Mock', async function () {
+        await ApiClient.createService(
             './resources/country.wsdl',
             '/Mock',
             customCountryNameService,
         )
 
-        const customClient = await ApiClient.getClient<CountryClient>({
-            url: '/Mock?wsdl',
-            port: server.port,
-            mock: true,
-        })
+        const customClient = await ApiClient.getClient<CountryClient>(
+            {
+                url: '/Mock',
+                mock: true,
+            },
+            { contextToReport: this },
+        )
         const language: CountryIsoCode = {
             sCountryISOCode: 'Pepe',
         }

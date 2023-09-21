@@ -51,5 +51,7 @@ module.exports = {
     timeout: 100000,
     grep: createGrep(args),
     reporter: 'mochawesome',
-    reporterOption: ["reportFilename=soap-country-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,timestamp=mmddyyyy-HHMMss,enableCharts=true,enableCode=true"]
+    reporterOption: [
+        'reportFilename=[status]_[datetime]-[name]-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,timestamp=longDate,enableCharts=true,enableCode=true',
+    ],
 }
