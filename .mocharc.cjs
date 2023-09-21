@@ -52,6 +52,6 @@ module.exports = {
     grep: createGrep(args),
     reporter: 'mochawesome',
     reporterOption: [
-        'reportFilename=[status]_[datetime]-[name]-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,timestamp=longDate,enableCharts=true,enableCode=true',
+        'reportFilename=Country-Service-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,timestamp=longDate,enableCharts=true,enableCode=true',
     ],
 }
