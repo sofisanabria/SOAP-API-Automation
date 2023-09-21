@@ -15,15 +15,15 @@ jobs:
 
         steps:
             - name: Check out code
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Set up Node.js
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 18
 
             - name: Cache node_modules
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: node_modules
                   key: ${{ runner.os }}-node-v16-${{ hashFiles('**/package-lock.json') }}
@@ -37,7 +37,7 @@ jobs:
               run: npm run test:parallel
 
             - name: Upload Test Reports
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
                   name: report
-                  path: reports/Country-Service-report.html
+                  path: reports/*

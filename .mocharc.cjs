@@ -43,8 +43,6 @@ function parseArgs(argv) {
     return args
 }
 
-const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
-
 module.exports = {
     extension: ['ts'],
     require: ['mochawesome/register.js'],
@@ -54,10 +52,6 @@ module.exports = {
     grep: createGrep(args),
     reporter: 'mochawesome',
     reporterOption: [
-        `reportFilename=${
-            isGitHubActions
-                ? 'Country-Service-report'
-                : '[status]_[datetime]-[name]-report'
-        },reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,enableCharts=true,enableCode=true`,
+        'reportFilename=Country-Service-report,reportDir=reports,reportTitle=Country Report,reportPageTitle=Country Report,charts=true,code=true,inline=true,overwrite=true,timestamp=longDate,enableCharts=true,enableCode=true',
     ],
 }
