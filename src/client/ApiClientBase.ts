@@ -7,13 +7,36 @@ import { readFileSync } from 'fs'
 import { ExtendedClient, addToReport } from './utils'
 import { modifyWsdl } from './wsdlUtils'
 
+/**
+ * The ApiClient class provides methods for creating and managing SOAP services and clients.
+ */
 export class ApiClient {
+    /**
+     * The singleton instance of the ApiClient class.
+     */
     private static classInstance?: ApiClient
+
+    /**
+     * The HTTP server used to host SOAP services.
+     */
     private server?: Server
+
+    /**
+     * An array of registered SOAP services.
+     */
     private registeredServices: string[] = []
 
+    /**
+     * Creates a new instance of the ApiClient class.
+     * @private
+     */
     private constructor() {}
 
+    /**
+     * Returns the singleton instance of the ApiClient class.
+     * If an instance does not exist, a new one is created.
+     * @returns The singleton instance of the ApiClient class.
+     */
     public static getInstance() {
         if (!this.classInstance) {
             this.classInstance = new ApiClient()
@@ -22,6 +45,12 @@ export class ApiClient {
         return this.classInstance
     }
 
+    /**
+     * Creates an HTTP server to host SOAP services.
+     * If a server does not exist, a new one is created.
+     * @param port - The port number to use for the server (optional).
+     * @returns The HTTP server used to host SOAP services.
+     */
     private static createServer(port?: number) {
         const currentInstance = this.getInstance()
         if (!currentInstance.server) {
@@ -34,6 +63,10 @@ export class ApiClient {
         return currentInstance.server
     }
 
+    /**
+     * Returns the port number of the HTTP server used to host SOAP services.
+     * @returns The port number of the HTTP server used to host SOAP services.
+     */
     private static getServerPort() {
         const currentInstance = this.getInstance()
         if (currentInstance.server) {
@@ -48,6 +81,9 @@ export class ApiClient {
         return 0
     }
 
+    /**
+     * Closes the HTTP server used to host SOAP services and clears the list of registered services.
+     */
     public static closeServer() {
         const currentInstance = this.getInstance()
         if (currentInstance.server) {
@@ -57,6 +93,12 @@ export class ApiClient {
         }
     }
 
+    /**
+     * Creates a new SOAP client for the specified service.
+     * @param server - The URL of the SOAP service and an optional flag to indicate if the service is a mock (default is false).
+     * @param axiosConfig - Optional configuration for the Axios HTTP client used by the SOAP client.
+     * @returns A Promise that resolves to the SOAP client.
+     */
     public static async getClient<T extends Client>(
         server: {
             url: string
@@ -119,6 +161,15 @@ export class ApiClient {
         return newClient
     }
 
+    /**
+     * Creates a new SOAP service using the specified WSDL and custom service implementation.
+     * @param wsdl - The URL or local file path of the WSDL file.
+     * @param soapServiceUrl - The URL of the SOAP service.
+     * @param customService - The custom service implementation.
+     * @param port - The port number to use for the server (optional).
+     * @returns A Promise that resolves to the SOAP service.
+     * @throws An error if there is an issue downloading or reading the WSDL file, or if the service is already registered.
+     */
     public static async createService(
         wsdl: string,
         soapServiceUrl: string,

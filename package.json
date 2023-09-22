@@ -12,8 +12,7 @@
     "prettify": "prettier --write ./src/**/*.ts",
     "clean": "npx rimraf ./src/generated",
     "clean:report": "npx rimraf ./reports",
-    "generate": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl --quiet && eslint ./src/generated --fix",
-    "generate:multi": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL --verbose && eslint ./src/generated --fix"
+    "generate": "wsdl-tsclient -o ./src/generated ./resources/*.wsdl --quiet && eslint ./src/generated --fix"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +20,7 @@
     "@types/chai": "^4.3.6",
     "@types/mocha": "^10.0.1",
     "@types/mochawesome": "^6.2.1",
+    "@types/papaparse": "^5.3.8",
     "@types/xml2js": "^0.4.12",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
@@ -41,6 +41,7 @@
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
+    "papaparse": "^5.4.1",
     "rimraf": "^5.0.1",
     "soap4test": "^1.0.2",
     "ts-node": "^10.9.1",

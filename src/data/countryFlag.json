@@ -1,0 +1,20 @@
+{
+    "countryList":[
+        {
+            "countryIso":"US",
+            "countryFlagLink":"http://www.oorsprong.org/WebSamples.CountryInfo/Flags/USA.jpg"
+        },
+        {
+            "countryIso":"CA",
+            "countryFlagLink":"http://www.oorsprong.org/WebSamples.CountryInfo/Flags/Canada.jpg"
+        },
+        {
+            "countryIso":"MX",
+            "countryFlagLink":"http://www.oorsprong.org/WebSamples.CountryInfo/Flags/Mexico.jpg"
+        },
+        {
+            "countryIso":"UY",
+            "countryFlagLink":"http://www.oorsprong.org/WebSamples.CountryInfo/Flags/Uruguay.jpg"
+        }
+    ]
+}

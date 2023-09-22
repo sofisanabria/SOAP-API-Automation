@@ -4,7 +4,9 @@ import {
     AxiosRequestConfig,
     AxiosResponse,
 } from 'axios'
+import { readFileSync } from 'fs'
 import addContext from 'mochawesome/addContext'
+import Papa, { ParseResult } from 'papaparse'
 import { Client } from 'soap4test'
 
 export type ExtendedClient<T extends Client> = T & {
@@ -102,4 +104,12 @@ export function addToReport(
         },
     )
     return { requestId, responseId }
+}
+
+export function readFromCSV<T>(filePath: string, header = true): T[] {
+    return Papa.parse<T>(readFileSync(filePath, 'utf8'), {
+        header,
+        skipEmptyLines: true,
+        delimiter: ',',
+    }).data
 }
