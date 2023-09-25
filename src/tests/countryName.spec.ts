@@ -9,7 +9,7 @@ import { customCountryNameService } from '../mocks/customCountryService'
 import { ExtendedClient, readFromCSV } from '../client/utils'
 import { CountryNameData } from '../data/countryName/countryName'
 
-describe('Country Name Tests -@ Smoke', () => {
+describe('Country Name Tests', () => {
     let client: ExtendedClient<CountryClient>
 
     before(async function () {
@@ -25,16 +25,7 @@ describe('Country Name Tests -@ Smoke', () => {
         ApiClient.closeServer()
     })
 
-    it('should correctly get the country name', async () => {
-        const input = {
-            $xml: '<sCountryISOCode>US</sCountryISOCode>',
-        }
-        const operation = await client.CountryNameAsync(input)
-
-        expect(operation.result.CountryNameResult).to.equal('United States')
-    })
-
-    describe('Example of test over a list', () => {
+    describe('Example of test over a list -@ Smoke', () => {
         const countryList = readFromCSV<CountryNameData>(
             'src/data/countryName/countryName.csv',
         )
@@ -49,7 +40,10 @@ describe('Country Name Tests -@ Smoke', () => {
                     sCountryISOCode: countryInfo.countryIso,
                 }
 
-                const { result } = await client.CountryNameAsync(input)
+                const { result, rawResponse } =
+                    await client.CountryNameAsync(input)
+
+                expect(rawResponse.status).to.equal(200)
 
                 expect(result.CountryNameResult).to.equal(
                     countryInfo.countryName,
@@ -62,11 +56,22 @@ describe('Country Name Tests -@ Smoke', () => {
                 const countyOperation =
                     await client.CountryISOCodeAsync(isoCode)
 
+                expect(countyOperation.rawResponse.status).to.equal(200)
+
                 expect(countyOperation.result.CountryISOCodeResult).to.equal(
                     countryInfo.countryIso,
                 )
             })
         }
+    })
+
+    it('should correctly get the country name', async () => {
+        const input = {
+            $xml: '<sCountryISOCode>US</sCountryISOCode>',
+        }
+        const operation = await client.CountryNameAsync(input)
+
+        expect(operation.result.CountryNameResult).to.equal('United States')
     })
 
     it('should return an error when the country code is invalid', async () => {
