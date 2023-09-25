@@ -2,3 +2,4 @@ node_modules
 resources/*.wsdl,xml
 reports
 .env
+SoapUIResults
