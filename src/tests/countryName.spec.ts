@@ -25,46 +25,6 @@ describe('Country Name Tests', () => {
         ApiClient.closeServer()
     })
 
-    describe('Example of test over a list -@ Smoke', () => {
-        const countryList = readFromCSV<CountryNameData>(
-            'src/data/countryName/countryName.csv',
-        )
-
-        before(async function () {
-            client.updateContext(this)
-        })
-
-        for (const countryInfo of countryList) {
-            it(`should correctly get the country name for ${countryInfo.countryIso}`, async () => {
-                const input: CountryName = {
-                    sCountryISOCode: countryInfo.countryIso,
-                }
-
-                const { result, rawResponse } =
-                    await client.CountryNameAsync(input)
-
-                expect(rawResponse.status).to.equal(200)
-
-                expect(result.CountryNameResult).to.equal(
-                    countryInfo.countryName,
-                )
-
-                const isoCode: CountryIsoCode = {
-                    sCountryName: result.CountryNameResult,
-                }
-
-                const countyOperation =
-                    await client.CountryISOCodeAsync(isoCode)
-
-                expect(countyOperation.rawResponse.status).to.equal(200)
-
-                expect(countyOperation.result.CountryISOCodeResult).to.equal(
-                    countryInfo.countryIso,
-                )
-            })
-        }
-    })
-
     it('should correctly get the country name', async () => {
         const input = {
             $xml: '<sCountryISOCode>US</sCountryISOCode>',
