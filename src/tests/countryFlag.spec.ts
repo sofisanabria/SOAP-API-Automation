@@ -2,16 +2,14 @@ import { expect } from 'chai'
 import { ApiClient } from '../client/ApiClientBase'
 import { CountryClient } from '../generated/country'
 import { ExtendedClient, readFromCSV } from '../client/utils'
-import Papa, { ParseResult } from 'papaparse'
-import countryFlags from '../data/countryFlag.json'
+import countryFlags from '../data/countryFlag/countryFlag.json'
+import { CountryFlagData } from '../data/countryFlag/countryFlag'
 
-describe.only('Country Flag Tests', () => {
+describe('Country Flag Tests', () => {
     let client: ExtendedClient<CountryClient>
-    interface CountryFlagData {
-        countryIso: string
-        countryFlagLink: string
-    }
-    const countryList = readFromCSV<CountryFlagData>('src/data/countryFlag.csv')
+    const countryList = readFromCSV<CountryFlagData>(
+        'src/data/countryFlag/countryFlag.csv',
+    )
     const countryListFromJson: CountryFlagData[] = countryFlags.countryList
 
     before(async function () {

@@ -6,9 +6,10 @@ import {
     CountryName,
 } from '../generated/country'
 import { customCountryNameService } from '../mocks/customCountryService'
-import { ExtendedClient } from '../client/utils'
+import { ExtendedClient, readFromCSV } from '../client/utils'
+import { CountryNameData } from '../data/countryName/countryName'
 
-describe('Country Name Tests', () => {
+describe('Country Name Tests -@ Smoke', () => {
     let client: ExtendedClient<CountryClient>
 
     before(async function () {
@@ -24,7 +25,7 @@ describe('Country Name Tests', () => {
         ApiClient.closeServer()
     })
 
-    it('should correctly get the country name -@ Smoke', async () => {
+    it('should correctly get the country name', async () => {
         const input = {
             $xml: '<sCountryISOCode>US</sCountryISOCode>',
         }
@@ -33,17 +34,14 @@ describe('Country Name Tests', () => {
         expect(operation.result.CountryNameResult).to.equal('United States')
     })
 
-    describe('Example of test over a list -@ Smoke', () => {
+    describe('Example of test over a list', () => {
+        const countryList = readFromCSV<CountryNameData>(
+            'src/data/countryName/countryName.csv',
+        )
+
         before(async function () {
             client.updateContext(this)
         })
-
-        const countryList = [
-            { countryIso: 'US', countryName: 'United States' },
-            { countryIso: 'CA', countryName: 'Canada' },
-            { countryIso: 'MX', countryName: 'Mexico' },
-            { countryIso: 'UY', countryName: 'Uruguay' },
-        ]
 
         for (const countryInfo of countryList) {
             it(`should correctly get the country name for ${countryInfo.countryIso}`, async () => {
@@ -71,7 +69,7 @@ describe('Country Name Tests', () => {
         }
     })
 
-    it('should return an error when the country code is invalid -@ Smoke', async () => {
+    it('should return an error when the country code is invalid', async () => {
         const input = {
             sCountryISOCode: '',
         }
