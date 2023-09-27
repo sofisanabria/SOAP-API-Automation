@@ -4,7 +4,7 @@ import { ExtendedClient, readFromCSV } from '../../client/utils'
 import { CountryNameData } from '../../data/countryName/countryName'
 import { ApiClient } from '../../client/ApiClientBase'
 
-describe('Full Country Info Tests -@ smoke', () => {
+describe('Full Country Info Tests -@ Smoke', () => {
     let client: ExtendedClient<CountryClient>
     const countryList = readFromCSV<CountryNameData>(
         'src/data/countryName/countryName.csv',
